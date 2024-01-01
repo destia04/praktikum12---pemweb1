@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <style>
+        label{
+            font-weight: lighter;
+        }
+    .form-group{
+            margin-bottom: 10px;
+    }
+
+    body{
+            font-family:'Times New Roman', Times, serif;
+            background-color: rgb(131, 189, 197);
+    }
+
+    h2{
+            text-align: center;
+    }
+
+    input{
+        float: none;
+    }
+        
+    </style>
+</body>
+</html>
+
+<body>
+    <form id="form"> 
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        <br>
+        <br>
+        <label for="password">Password</label> 
+        <input type="password" name="password" id="password">
+        <br> 
+        <br>
+        <button type="submit" id="login">Login</button>
+    </form>
+
+    <script>
+        let buttonLogin = document.getElementById('login');
+
+        buttonLogin.onclick = function(){
+            let inputnama =  document.getElementById('username').value;
+            let inputpass = document.getElementById('password').value;
+            let form = document.getElementById('form');
+
+            if(inputnama=='destiaaz' && inputpass =='desti04'){
+                alert('LOGIN BERHASIL');
+                form.setAttribute('action', 'dashboard.html');
+            } else {
+                alert('LOGIN GAGAL');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURS</title>
+    <style>
+        body {
+            background-color: rgb(200, 181, 241);
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: rgb(200, 181, 241);
+            padding: 20px;
+        }
+
+        fieldset {
+            border: 2px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid black;
+            margin-bottom: 10px;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        select, input[type="number"] {
+            width: calc(100% - 16px); /* Consider the input padding and border */
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        #konversi {
+            width: calc(100% - 18px); /* Consider the input padding and border */
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>KURS RUPIAH - MATA UANG ASING</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Masukan Nilai</th>
+                        <th>Valas</th>
+                        <th>Nilai Rupiah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" id="uang"></td>
+                        <td>
+                            <select id="pilihan">
+                                <option value="">- - - - - PILIH - - - - -</option>
+                                <option value="usd">Dollar US</option>
+                                <option value="sd">Dollar Singapore</option>
+                                <option value="rm">Ringgit Malaysia</option>
+                                <option value="yen">Yen Jepang</option>
+                                <option value="euro">Euro</option>
+                                <option value="riyal">Riyal Saudi Arabia</option>
+                            </select>
+                        </td>
+                        <td><input type="number" id="konversi" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        let pilihan = document.getElementById('pilihan');
+
+        pilihan.onchange = function(){
+            let uang = document.getElementById('uang').value;
+            let konversiInput = document.getElementById('konversi');
+
+            if (pilihan.value == 'usd') {
+                konversiInput.value = uang * 9915;
+            } else if (pilihan.value == 'sd') {
+                konversiInput.value = uang * 13472;
+            } else if (pilihan.value == 'rm') {
+                konversiInput.value = uang * 874;
+            } else if (pilihan.value == 'yen') {
+                konversiInput.value = uang * 120;
+            } else if (pilihan.value == 'euro') {
+                konversiInput.value = uang * 15888;
+            } else if (pilihan.value == 'riyal') {
+                konversiInput.value = uang * 3592;
+            } else {
+                konversiInput.value = 'Anda tidak Memilih';
+            }
+        }
+    </script>
+</body>
+</html>
